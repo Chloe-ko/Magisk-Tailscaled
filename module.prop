@@ -1,7 +1,7 @@
 id=magisk-tailscaled
 name=Magisk-Tailscaled
-version=1.56.1.4
-versionCode=01560104
+version=1.56.1.5
+versionCode=01560105
 author=anasfanani
 description=Run Tailscaled with magisk.
 updateJson=https://raw.githubusercontent.com/anasfanani/Magisk-Tailscaled/master/update.json
