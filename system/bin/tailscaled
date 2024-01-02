@@ -2,7 +2,7 @@
 if [ $# -eq 0 ]; then # if no arguments are passed, start tailscaled
     export PATH=/data/adb/tailscale/bin:$PATH
     /system/bin/ip tuntap add dev tun66 mode tun
-    /data/adb/tailscale/bin/tailscaled -tun=dev66 -statedir=/data/adb/tailscale/tmp/ -state=/data/adb/tailscale/tmp/tailscaled.state -socket=/data/adb/tailscale/tmp/tailscaled.sock
+    /data/adb/tailscale/bin/tailscaled -tun=tun66 -statedir=/data/adb/tailscale/tmp/ -state=/data/adb/tailscale/tmp/tailscaled.state -socket=/data/adb/tailscale/tmp/tailscaled.sock
 else # otherwise, run tailscale with the arguments passed
     /data/adb/tailscale/bin/tailscaled "$@"
 fi
