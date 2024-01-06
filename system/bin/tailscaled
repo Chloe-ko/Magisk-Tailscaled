@@ -1,8 +1,8 @@
 #!/system/bin/sh
 if [ $# -eq 0 ]; then # if no arguments are passed, start tailscaled
     export PATH=/data/adb/tailscale/bin:$PATH
-    /system/bin/ip tuntap add dev tun66 mode tun
-    /data/adb/tailscale/bin/tailscaled -tun=tun66 -statedir=/data/adb/tailscale/tmp/ -state=/data/adb/tailscale/tmp/tailscaled.state -socket=/data/adb/tailscale/tmp/tailscaled.sock
+    export HOME=/data/adb/tailscale/tmp/
+    /data/adb/tailscale/bin/tailscaled -verbose=0 --outbound-http-proxy-listen=localhost:1099 --socks5-server=localhost:1099 -tun=userspace-networking -statedir=/data/adb/tailscale/tmp/ -state=/data/adb/tailscale/tmp/tailscaled.state -socket=/data/adb/tailscale/tmp/tailscaled.sock -port=41641
 else # otherwise, run tailscale with the arguments passed
     /data/adb/tailscale/bin/tailscaled "$@"
 fi
